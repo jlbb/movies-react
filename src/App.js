@@ -32,25 +32,27 @@ export default class App extends Component {
 			})	
 	}
 
-	onClickMovie() {
+	onClickMovie(index) {
+		console.log('Opening movie');
 		this.setState({
-			mode: CARD
-		})
+			mode: CARD,
+			index: index
+		});
 	}
 
 	renderModeView() {
 		switch(this.state.mode) {
 			case LOADING: 
 				return (
-						<ProgressBar active now={100} />
-					)
+					<ProgressBar active now={100} />
+				);
 			case LIST:
 				return (
 					<MovieContainer movies={this.state.movies} onClickMovie={this.onClickMovie.bind(this)}/>
 				);
 			case CARD:
 				return (
-					<MovieDetails />
+					<MovieDetails movie={this.state.movies[this.state.index]}/>
 				);
 			default:
 				break;

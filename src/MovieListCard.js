@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Panel, ListGroup, ListGroupItem, Media, Grid, Row, Label, Glyphicon} from 'react-bootstrap';
+import {ListGroupItem, Media, Grid, Row, Label, Glyphicon} from 'react-bootstrap';
 
 export default class MovieListCard extends Component {
 	static propTypes = {
@@ -9,9 +9,9 @@ export default class MovieListCard extends Component {
   	}
 
 	render() {
-		let {onClickMovie, movie} = this.props;
+		let {onClickMovie, movie, index} = this.props;
 		return (
-			<ListGroupItem onClickMovie={() => onClickMovie()}>
+			<ListGroupItem onClick={() => onClickMovie(index)}>
 			<Media>
 				<Media.Left>
 					<img  width={64} height={78} src={movie.poster} alt="Image"/>

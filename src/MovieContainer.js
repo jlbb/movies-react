@@ -13,7 +13,7 @@ export default class MovieContainer extends Component {
 		let {onClickMovie, movies} = this.props;
 		return movies.map((movie, index) => {
 				return (
-					<MovieListCard key={index} movie={movie} onClickMovie={onClickMovie}/> 
+					<MovieListCard key={index} movie={movie} onClickMovie={onClickMovie} index={index}/> 
 				)
 			})
 	}
